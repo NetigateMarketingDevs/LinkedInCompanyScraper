@@ -10,6 +10,8 @@ app = Flask(__name__)
 @app.route('/webhook', methods=['POST'])
 def webhook():
     if request.method == 'POST':
+        email = ask_for_linkedin_username()
+        password = ask_for_linkedin_password()
         company_name = request.json['company_name']
         prospect_email = request.json['prospect_email']
         driver = create_webdriver()

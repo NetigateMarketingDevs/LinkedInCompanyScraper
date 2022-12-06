@@ -101,7 +101,7 @@ def create_single_company_dict(company_name, driver):
     entry_dict = create_company_overview_from_soup(soup,company_name)
     return entry_dict
 
-#Creates an output dataframe with all the company information that was found on linkedin for each of the companies in the input list
+#Creates an output dataframe with all the company information that was found on linkedin for each of the companies in the input list and exports it as a csv
 def create_df_from_csv_of_companies(csv_file, company_column,driver):
     company_list = create_list_of_companies_from_csv(csv_file, company_column )
     df = pd.DataFrame()
@@ -111,6 +111,14 @@ def create_df_from_csv_of_companies(csv_file, company_column,driver):
         entry_dict = create_company_overview_from_soup(soup)
         entry_df = pd.DataFrame(entry_dict,index=[0])
         df= pd.concat([df,entry_df])
+        df.to_csv("company_firmographics.csv")
     return df
 
-#Make sure the input company name is carried over trough the whole script
+#Create a function to ask for LinkedIn credentials
+def ask_for_linkedin_username():
+    username = input('Please enter your LinkedIn E-Mail Adress:')
+    return username
+
+def ask_for_linkedin_password():
+    password = input('Please enter your LinkedIn password:')
+    return password

@@ -1,9 +1,6 @@
 from main import *
 from flask import Flask, request, abort
 
-#MySecretCredentials
-email = 'testie.testieson@gmail.com'
-password = 'ScrapingStuff2022!'
 
 app = Flask(__name__)
 
@@ -20,7 +17,6 @@ def webhook():
         dict['prospect_email'] = prospect_email
         print(dict)
         driver.close()
-        #post_webhook('https://hooks.zapier.com/hooks/catch/2597417/bnt0msn/', data_dict=dict)
         return 'success', 200
     else:
         abort(400)

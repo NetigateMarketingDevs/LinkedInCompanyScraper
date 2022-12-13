@@ -1,7 +1,7 @@
 import requests
 import json
 
-data = {'company_name':'siemens','prospect_email':'marcello-trottier@web.de'}
+data = {'company_name':'fraport ag','prospect_email':'marcello-trottier@web.de'}
 
 def post_webhook(webhook_url, data):
     response = requests.post(webhook_url, data=json.dumps(data),headers={'Content-Type':'application/json'})

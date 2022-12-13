@@ -58,8 +58,12 @@ def linkedin_go_to_company_page(driver, linkedin_company_name):
     time.sleep(random_time())
     return
 
+def linkedin_go_to_home_page(driver):
+    driver.get('https://www.linkedin.com/feed')
+    return
+
 def random_time():
-    time = random.randint(0, 8)
+    time = random.randint(3, 8)
     return time
 #Gets the soup of a page from the currently active page in the driver
 def get_page_soup(driver):
